@@ -86,7 +86,7 @@ export function optionalAuthMiddleware(req: Request, _res: Response, next: NextF
  */
 export function generateAccessToken(payload: { userId: string; email: string }): string {
   const secret = process.env.JWT_SECRET || 'default-dev-secret';
-  const expiresIn = process.env.JWT_EXPIRES_IN || '7d';
+  const expiresIn = (process.env.JWT_EXPIRES_IN || '7d') as unknown as number;
   return jwt.sign(payload, secret, { expiresIn });
 }
 
@@ -95,7 +95,7 @@ export function generateAccessToken(payload: { userId: string; email: string }):
  */
 export function generateRefreshToken(payload: { userId: string; email: string }): string {
   const secret = process.env.JWT_REFRESH_SECRET || 'default-refresh-secret';
-  return jwt.sign(payload, secret, { expiresIn: '30d' });
+  return jwt.sign(payload, secret, { expiresIn: '30d' as unknown as number });
 }
 
 /**

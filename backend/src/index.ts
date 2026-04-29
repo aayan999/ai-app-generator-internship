@@ -41,16 +41,19 @@ async function bootstrap(): Promise<void> {
   const port = parseInt(process.env.PORT || '4000', 10);
 
   // Middleware
-  // Allow multiple origins: supports comma-separated list in FRONTEND_URL
-  const allowedOrigins = (process.env.FRONTEND_URL || 'http://localhost:3000')
+  // Allow multiple origins: localhost, any *.vercel.app, plus explicit list in FRONTEND_URL
+  const explicitOrigins = (process.env.FRONTEND_URL || 'http://localhost:3000')
     .split(',')
     .map((o) => o.trim());
 
   app.use(cors({
     origin: (origin, callback) => {
-      // Allow requests with no origin (mobile apps, curl, Render health checks)
+      // Allow requests with no origin (curl, Render health checks, mobile apps)
       if (!origin) return callback(null, true);
-      if (allowedOrigins.includes(origin)) return callback(null, true);
+      // Allow all Vercel preview/production deployments
+      if (origin.endsWith('.vercel.app')) return callback(null, true);
+      // Allow explicitly configured origins
+      if (explicitOrigins.includes(origin)) return callback(null, true);
       callback(new Error(`CORS: origin ${origin} not allowed`));
     },
     credentials: true,

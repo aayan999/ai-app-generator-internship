@@ -1,0 +1,344 @@
+{
+  "app": {
+    "name": "TaskFlow Pro",
+    "version": "1.0.0",
+    "description": "A config-driven project management application",
+    "defaultLanguage": "en",
+    "theme": {
+      "primaryColor": "#6366f1",
+      "secondaryColor": "#8b5cf6",
+      "mode": "dark"
+    }
+  },
+
+  "i18n": {
+    "supportedLanguages": ["en", "es", "fr", "hi"],
+    "translations": {
+      "en": {
+        "app.title": "TaskFlow Pro",
+        "app.subtitle": "Manage your projects effortlessly",
+        "nav.dashboard": "Dashboard",
+        "nav.projects": "Projects",
+        "nav.tasks": "Tasks",
+        "nav.settings": "Settings",
+        "nav.logout": "Logout",
+        "auth.login": "Log In",
+        "auth.signup": "Sign Up",
+        "auth.email": "Email Address",
+        "auth.password": "Password",
+        "auth.name": "Full Name",
+        "auth.magicLink": "Send Magic Link",
+        "auth.or": "or continue with",
+        "auth.noAccount": "Don't have an account?",
+        "auth.hasAccount": "Already have an account?",
+        "form.submit": "Submit",
+        "form.cancel": "Cancel",
+        "form.save": "Save",
+        "form.delete": "Delete",
+        "form.edit": "Edit",
+        "form.create": "Create New",
+        "form.search": "Search...",
+        "table.noData": "No data found",
+        "table.loading": "Loading...",
+        "table.actions": "Actions",
+        "export.github": "Export to GitHub",
+        "export.success": "Successfully exported to GitHub!",
+        "export.error": "Export failed. Please try again.",
+        "common.welcome": "Welcome back",
+        "common.error": "Something went wrong",
+        "common.success": "Operation successful"
+      },
+      "es": {
+        "app.title": "TaskFlow Pro",
+        "app.subtitle": "Gestiona tus proyectos sin esfuerzo",
+        "nav.dashboard": "Panel",
+        "nav.projects": "Proyectos",
+        "nav.tasks": "Tareas",
+        "nav.settings": "Configuración",
+        "nav.logout": "Cerrar sesión",
+        "auth.login": "Iniciar sesión",
+        "auth.signup": "Registrarse",
+        "auth.email": "Correo electrónico",
+        "auth.password": "Contraseña",
+        "auth.name": "Nombre completo",
+        "auth.magicLink": "Enviar enlace mágico",
+        "auth.or": "o continuar con",
+        "auth.noAccount": "¿No tienes cuenta?",
+        "auth.hasAccount": "¿Ya tienes cuenta?",
+        "form.submit": "Enviar",
+        "form.cancel": "Cancelar",
+        "form.save": "Guardar",
+        "form.delete": "Eliminar",
+        "form.edit": "Editar",
+        "form.create": "Crear nuevo",
+        "form.search": "Buscar...",
+        "table.noData": "No se encontraron datos",
+        "table.loading": "Cargando...",
+        "table.actions": "Acciones",
+        "export.github": "Exportar a GitHub",
+        "export.success": "¡Exportado exitosamente a GitHub!",
+        "export.error": "La exportación falló. Inténtalo de nuevo.",
+        "common.welcome": "Bienvenido de nuevo",
+        "common.error": "Algo salió mal",
+        "common.success": "Operación exitosa"
+      },
+      "fr": {
+        "app.title": "TaskFlow Pro",
+        "app.subtitle": "Gérez vos projets sans effort",
+        "nav.dashboard": "Tableau de bord",
+        "nav.projects": "Projets",
+        "nav.tasks": "Tâches",
+        "nav.settings": "Paramètres",
+        "nav.logout": "Déconnexion",
+        "auth.login": "Se connecter",
+        "auth.signup": "S'inscrire",
+        "auth.email": "Adresse e-mail",
+        "auth.password": "Mot de passe",
+        "auth.name": "Nom complet",
+        "auth.magicLink": "Envoyer un lien magique",
+        "auth.or": "ou continuer avec",
+        "auth.noAccount": "Pas de compte ?",
+        "auth.hasAccount": "Déjà un compte ?",
+        "form.submit": "Soumettre",
+        "form.cancel": "Annuler",
+        "form.save": "Sauvegarder",
+        "form.delete": "Supprimer",
+        "form.edit": "Modifier",
+        "form.create": "Créer nouveau",
+        "form.search": "Rechercher...",
+        "table.noData": "Aucune donnée trouvée",
+        "table.loading": "Chargement...",
+        "table.actions": "Actions",
+        "export.github": "Exporter vers GitHub",
+        "export.success": "Exporté avec succès vers GitHub !",
+        "export.error": "L'exportation a échoué. Veuillez réessayer.",
+        "common.welcome": "Bon retour",
+        "common.error": "Quelque chose s'est mal passé",
+        "common.success": "Opération réussie"
+      },
+      "hi": {
+        "app.title": "TaskFlow Pro",
+        "app.subtitle": "अपनी परियोजनाओं को आसानी से प्रबंधित करें",
+        "nav.dashboard": "डैशबोर्ड",
+        "nav.projects": "परियोजनाएं",
+        "nav.tasks": "कार्य",
+        "nav.settings": "सेटिंग्स",
+        "nav.logout": "लॉग आउट",
+        "auth.login": "लॉग इन",
+        "auth.signup": "साइन अप",
+        "auth.email": "ईमेल पता",
+        "auth.password": "पासवर्ड",
+        "auth.name": "पूरा नाम",
+        "auth.magicLink": "मैजिक लिंक भेजें",
+        "auth.or": "या इसके साथ जारी रखें",
+        "auth.noAccount": "खाता नहीं है?",
+        "auth.hasAccount": "पहले से खाता है?",
+        "form.submit": "जमा करें",
+        "form.cancel": "रद्द करें",
+        "form.save": "सहेजें",
+        "form.delete": "हटाएं",
+        "form.edit": "संपादित करें",
+        "form.create": "नया बनाएं",
+        "form.search": "खोजें...",
+        "table.noData": "कोई डेटा नहीं मिला",
+        "table.loading": "लोड हो रहा है...",
+        "table.actions": "क्रियाएं",
+        "export.github": "GitHub पर निर्यात करें",
+        "export.success": "GitHub पर सफलतापूर्वक निर्यात किया गया!",
+        "export.error": "निर्यात विफल। कृपया पुनः प्रयास करें।",
+        "common.welcome": "वापसी पर स्वागत है",
+        "common.error": "कुछ गलत हो गया",
+        "common.success": "ऑपरेशन सफल"
+      }
+    }
+  },
+
+  "auth": {
+    "enabled": true,
+    "methods": [
+      {
+        "type": "email_password",
+        "enabled": true,
+        "passwordMinLength": 8,
+        "requireUppercase": true,
+        "requireNumber": true
+      },
+      {
+        "type": "magic_link",
+        "enabled": true,
+        "expiresInMinutes": 15
+      }
+    ],
+    "jwt": {
+      "expiresIn": "7d",
+      "refreshEnabled": true
+    },
+    "userScoped": true
+  },
+
+  "database": {
+    "entities": {
+      "projects": {
+        "tableName": "projects",
+        "userScoped": true,
+        "fields": {
+          "id": { "type": "uuid", "primaryKey": true, "auto": true },
+          "name": { "type": "string", "required": true, "maxLength": 255 },
+          "description": { "type": "text", "required": false },
+          "status": {
+            "type": "enum",
+            "values": ["planning", "active", "on_hold", "completed", "archived"],
+            "default": "planning"
+          },
+          "priority": {
+            "type": "enum",
+            "values": ["low", "medium", "high", "critical"],
+            "default": "medium"
+          },
+          "start_date": { "type": "date", "required": false },
+          "end_date": { "type": "date", "required": false },
+          "budget": { "type": "decimal", "precision": 10, "scale": 2, "required": false },
+          "tags": { "type": "json", "required": false, "default": "[]" },
+          "client_name": { "type": "string", "required": false },
+
+          "created_at": { "type": "timestamp", "auto": true },
+          "updated_at": { "type": "timestamp", "auto": true }
+        }
+      },
+      "tasks": {
+        "tableName": "tasks",
+        "userScoped": true,
+        "fields": {
+          "id": { "type": "uuid", "primaryKey": true, "auto": true },
+          "title": { "type": "string", "required": true, "maxLength": 500 },
+          "description": { "type": "text", "required": false },
+          "project_id": {
+            "type": "uuid",
+            "required": true,
+            "foreignKey": { "entity": "projects", "field": "id", "onDelete": "CASCADE" }
+          },
+          "status": {
+            "type": "enum",
+            "values": ["todo", "in_progress", "review", "done"],
+            "default": "todo"
+          },
+          "priority": {
+            "type": "enum",
+            "values": ["low", "medium", "high", "urgent"],
+            "default": "medium"
+          },
+          "assignee_email": { "type": "string", "required": false },
+          "due_date": { "type": "date", "required": false },
+          "estimated_hours": { "type": "decimal", "precision": 5, "scale": 1, "required": false },
+          "labels": { "type": "json", "required": false, "default": "[]" },
+          "created_at": { "type": "timestamp", "auto": true },
+          "updated_at": { "type": "timestamp", "auto": true }
+        }
+      }
+    }
+  },
+
+  "api": {
+    "prefix": "/api/v1",
+    "endpoints": {
+      "projects": {
+        "entity": "projects",
+        "auth": true,
+        "operations": ["list", "get", "create", "update", "delete"],
+        "pagination": { "enabled": true, "defaultLimit": 20, "maxLimit": 100 },
+        "search": { "enabled": true, "fields": ["name", "description"] },
+        "sort": { "enabled": true, "defaultField": "created_at", "defaultOrder": "DESC" },
+        "filters": {
+          "status": { "type": "enum", "operator": "eq" },
+          "priority": { "type": "enum", "operator": "eq" },
+          "start_date": { "type": "date", "operator": "gte" }
+        }
+      },
+      "tasks": {
+        "entity": "tasks",
+        "auth": true,
+        "operations": ["list", "get", "create", "update", "delete"],
+        "pagination": { "enabled": true, "defaultLimit": 25, "maxLimit": 100 },
+        "search": { "enabled": true, "fields": ["title", "description"] },
+        "sort": { "enabled": true, "defaultField": "created_at", "defaultOrder": "DESC" },
+        "filters": {
+          "status": { "type": "enum", "operator": "eq" },
+          "priority": { "type": "enum", "operator": "eq" },
+          "project_id": { "type": "uuid", "operator": "eq" },
+          "due_date": { "type": "date", "operator": "lte" }
+        }
+      }
+    }
+  },
+
+  "ui": {
+    "pages": {
+      "dashboard": {
+        "title": "nav.dashboard",
+        "layout": "grid",
+        "components": [
+          {
+            "type": "stats_card",
+            "entity": "projects",
+            "label": "nav.projects",
+            "aggregation": "count"
+          },
+          {
+            "type": "stats_card",
+            "entity": "tasks",
+            "label": "nav.tasks",
+            "aggregation": "count"
+          },
+          {
+            "type": "table",
+            "entity": "tasks",
+            "label": "Recent Tasks",
+            "limit": 5,
+            "columns": ["title", "status", "priority", "due_date"],
+            "sort": { "field": "created_at", "order": "DESC" }
+          }
+        ]
+      },
+      "projects": {
+        "title": "nav.projects",
+        "layout": "table_with_form",
+        "entity": "projects",
+        "table": {
+          "columns": ["name", "status", "priority", "start_date", "end_date", "budget"],
+          "searchable": true,
+          "actions": ["edit", "delete"]
+        },
+        "form": {
+          "fields": ["name", "description", "status", "priority", "start_date", "end_date", "budget", "tags", "client_name"]
+        }
+      },
+      "tasks": {
+        "title": "nav.tasks",
+        "layout": "table_with_form",
+        "entity": "tasks",
+        "table": {
+          "columns": ["title", "status", "priority", "project_id", "assignee_email", "due_date"],
+          "searchable": true,
+          "actions": ["edit", "delete"]
+        },
+        "form": {
+          "fields": ["title", "description", "project_id", "status", "priority", "assignee_email", "due_date", "estimated_hours", "labels"]
+        }
+      }
+    },
+    "navigation": [
+      { "label": "nav.dashboard", "path": "/dashboard", "icon": "LayoutDashboard" },
+      { "label": "nav.projects", "path": "/dashboard/projects", "icon": "FolderKanban" },
+      { "label": "nav.tasks", "path": "/dashboard/tasks", "icon": "CheckSquare" }
+    ]
+  },
+
+  "export": {
+    "github": {
+      "enabled": true,
+      "includeReadme": true,
+      "includeDockerfile": true,
+      "includeEnvExample": true
+    }
+  }
+}

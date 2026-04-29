@@ -41,8 +41,18 @@ async function bootstrap(): Promise<void> {
   const port = parseInt(process.env.PORT || '4000', 10);
 
   // Middleware
+  // Allow multiple origins: supports comma-separated list in FRONTEND_URL
+  const allowedOrigins = (process.env.FRONTEND_URL || 'http://localhost:3000')
+    .split(',')
+    .map((o) => o.trim());
+
   app.use(cors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+    origin: (origin, callback) => {
+      // Allow requests with no origin (mobile apps, curl, Render health checks)
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) return callback(null, true);
+      callback(new Error(`CORS: origin ${origin} not allowed`));
+    },
     credentials: true,
   }));
   app.use(express.json({ limit: '10mb' }));

@@ -234,6 +234,22 @@
           "created_at": { "type": "timestamp", "auto": true },
           "updated_at": { "type": "timestamp", "auto": true }
         }
+      },
+      "customers": {
+        "tableName": "customers",
+        "userScoped": true,
+        "fields": {
+          "id": { "type": "uuid", "primaryKey": true, "auto": true },
+          "name": { "type": "string", "required": true, "maxLength": 255 },
+          "email": { "type": "email", "required": true },
+          "phone": { "type": "string", "required": false },
+          "status": {
+            "type": "enum",
+            "values": ["lead", "active", "churned"],
+            "default": "lead"
+          },
+          "created_at": { "type": "timestamp", "auto": true }
+        }
       }
     }
   },
@@ -267,9 +283,24 @@
           "project_id": { "type": "uuid", "operator": "eq" },
           "due_date": { "type": "date", "operator": "lte" }
         }
+      },
+      "customers": {
+        "entity": "customers",
+        "auth": true,
+        "operations": ["list", "get", "create", "update", "delete"],
+        "pagination": { "enabled": true, "defaultLimit": 25, "maxLimit": 100 },
+        "search": { "enabled": true, "fields": ["name", "email"] },
+        "sort": { "enabled": true, "defaultField": "created_at", "defaultOrder": "DESC" },
+        "filters": {
+          "status": { "type": "enum", "operator": "eq" },
+          "priority": { "type": "enum", "operator": "eq" },
+          "project_id": { "type": "uuid", "operator": "eq" },
+          "due_date": { "type": "date", "operator": "lte" }
+        }
       }
     }
   },
+
 
   "ui": {
     "pages": {
@@ -324,14 +355,29 @@
         "form": {
           "fields": ["title", "description", "project_id", "status", "priority", "assignee_email", "due_date", "estimated_hours", "labels"]
         }
+      },
+      "customers": {
+        "title": "nav.customers",
+        "layout": "table_with_form",
+        "entity": "customers",
+        "table": {
+          "columns": ["name", "email", "phone", "status"],
+          "searchable": true,
+          "actions": ["edit", "delete"]
+        },
+        "form": {
+          "fields": ["name", "email", "phone", "status"]
+        }
       }
     },
     "navigation": [
       { "label": "nav.dashboard", "path": "/dashboard", "icon": "LayoutDashboard" },
       { "label": "nav.projects", "path": "/dashboard/projects", "icon": "FolderKanban" },
-      { "label": "nav.tasks", "path": "/dashboard/tasks", "icon": "CheckSquare" }
+      { "label": "nav.tasks", "path": "/dashboard/tasks", "icon": "CheckSquare" },
+      {"label": "Customers", "path": "/dashboard/customers", "icon": "Users"}
     ]
   },
+
 
   "export": {
     "github": {

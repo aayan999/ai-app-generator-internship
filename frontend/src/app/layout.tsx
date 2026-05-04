@@ -9,9 +9,9 @@ import ErrorBoundary from "../components/ErrorBoundary";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "AI App Generator — Build Full-Stack Apps from JSON",
-  description: "Transform a single JSON configuration into a complete web application with authentication, dynamic APIs, beautiful UI, and a PostgreSQL database — instantly.",
-  keywords: ["AI", "App Generator", "Full-Stack", "JSON", "Next.js", "PostgreSQL", "No-Code"],
+  title: "Compensation Intelligence | Discover Tech Salaries",
+  description: "A production-grade compensation intelligence engine mapping tech salaries across standard levels.",
+  keywords: ["Salary", "Compensation", "Tech", "Levels", "Software Engineer"],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

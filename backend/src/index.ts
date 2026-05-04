@@ -8,6 +8,7 @@ import { generateSchema } from './database/schemaGenerator';
 import { createDynamicRouter, createConfigRouter } from './api/dynamicRouter';
 import { createAuthRouter } from './auth/authController';
 import { createExportRouter } from './export/githubExporter';
+import { salaryRouter } from './api/salaryRouter';
 import { globalErrorHandler } from './utils/errorHandler';
 import { logger } from './utils/logger';
 
@@ -107,6 +108,10 @@ async function bootstrap(): Promise<void> {
     app.use(`${config.api.prefix}/export`, createExportRouter());
     log.info(`Export routes mounted at: ${config.api.prefix}/export`);
   }
+
+  // Custom Salary Routes
+  app.use(config.api.prefix, salaryRouter);
+  log.info(`Salary routes mounted at: ${config.api.prefix}/ingest-salary`);
 
   // ── Step 6: Error Handling ──────────────────────────────────────────
   app.use(globalErrorHandler);

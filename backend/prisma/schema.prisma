@@ -1,0 +1,30 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Salary {
+  id                 String   @id @default(uuid())
+  company            String   // Handled in backend: must be normalized (lowercase, trimmed)
+  role               String
+  level              String   // STANDARDIZED: e.g., L3, L4, SDE2
+  location           String
+  experience_years   Float    // Float allows for partial years (e.g., 1.5)
+  base_salary        Int
+  bonus              Int      @default(0) // Default to 0 if missing per requirements
+  stock              Int      @default(0) // Default to 0 if missing per requirements
+  total_compensation Int      // Calculated in backend: base + bonus + stock
+  confidence_score   Float    // Provided by AI team
+  created_at         DateTime @default(now())
+
+  // Indexes to optimize the required GET /salaries server-side filtering
+  @@index([company])
+  @@index([role])
+  @@index([level])
+  @@index([location])
+}

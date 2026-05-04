@@ -112,7 +112,7 @@ async function main() {
     try {
       await prisma.salary.create({ data });
       console.log(`Inserted: ${data.company} - ${data.role} (${data.level})`);
-    } catch (e) {
+    } catch (e: any) {
       console.log(`Skipped or Error on ${data.company} - ${data.role}:`, e.message);
     }
   }

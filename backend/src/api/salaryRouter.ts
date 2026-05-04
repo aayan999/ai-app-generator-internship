@@ -142,7 +142,7 @@ salaryRouter.get('/company/:company', async (req: Request, res: Response) => {
     }
 
     // Calculate median total compensation
-    const totalComps = salaries.map(s => s.total_compensation).sort((a, b) => a - b);
+    const totalComps = salaries.map((s: any) => s.total_compensation).sort((a: any, b: any) => a - b);
     let median = 0;
     const mid = Math.floor(totalComps.length / 2);
     if (totalComps.length % 2 === 0) {
@@ -153,7 +153,7 @@ salaryRouter.get('/company/:company', async (req: Request, res: Response) => {
 
     // Level distribution
     const levelDistribution: Record<string, number> = {};
-    salaries.forEach(s => {
+    salaries.forEach((s: any) => {
       levelDistribution[s.level] = (levelDistribution[s.level] || 0) + 1;
     });
 

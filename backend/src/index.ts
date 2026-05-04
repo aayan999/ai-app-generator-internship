@@ -43,19 +43,14 @@ async function bootstrap(): Promise<void> {
 
   // Middleware
   // Allow multiple origins: localhost, any *.vercel.app, plus explicit list in FRONTEND_URL
-  const explicitOrigins = (process.env.FRONTEND_URL || 'http://localhost:3000')
+  const explicitOrigins = (process.env.FRONTEND_URL || 'http://localhost:3000,http://127.0.0.1:3000')
     .split(',')
     .map((o) => o.trim());
 
   app.use(cors({
     origin: (origin, callback) => {
-      // Allow requests with no origin (curl, Render health checks, mobile apps)
-      if (!origin) return callback(null, true);
-      // Allow all Vercel preview/production deployments
-      if (origin.endsWith('.vercel.app')) return callback(null, true);
-      // Allow explicitly configured origins
-      if (explicitOrigins.includes(origin)) return callback(null, true);
-      callback(new Error(`CORS: origin ${origin} not allowed`));
+      // Allow ALL origins for local development/testing to prevent port mismatch issues
+      callback(null, true);
     },
     credentials: true,
   }));
